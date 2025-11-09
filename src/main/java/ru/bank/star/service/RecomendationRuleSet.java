@@ -6,5 +6,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface RecomendationRuleSet {
-    RecomendDTO getRecomendationById(UUID id);
+    Optional<RecomendDTO> getRecomendationById(UUID id);
 }

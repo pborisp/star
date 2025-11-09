@@ -8,22 +8,23 @@ import ru.bank.star.repository.RecomendationsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 @Service
 public class RecomendationRuleSetService {
-    private final List<RecomendationRuleSet> allRecomendations;
+    private final List<RecomendationRuleSet> recomendstionService;
 
     @Autowired
-    public RecomendationRuleSetService(List<RecomendationRuleSet> allRecomendations) {
-        this.allRecomendations = allRecomendations;
+    public RecomendationRuleSetService(List<RecomendationRuleSet> recomendstionService) {
+        this.recomendstionService = recomendstionService;
     }
 
-    public List<RecomendationRuleSet> getAllRecomendations(UUID id) {
-        for (RecomendationRuleSet recomendations : allRecomendations) {
-            recomendations.getRecomendationById(id);
-        }
-        return allRecomendations;
+    public List<Optional<RecomendDTO>> getAllRecomendations(UUID id) {
+        return recomendstionService.stream()
+                .map(recomendstionService -> recomendstionService.getRecomendationById(id))
+                .collect(Collectors.toList());
     }
 }
