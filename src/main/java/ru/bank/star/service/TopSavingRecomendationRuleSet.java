@@ -2,8 +2,8 @@ package ru.bank.star.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.bank.star.DTO.RecomendDTO;
-import ru.bank.star.repository.RecomendationsRepository;
+import ru.bank.star.h2.DTO.RecomendDTO;
+import ru.bank.star.h2.repository.RecomendationsRepository;
 
 import java.util.Optional;
 import java.util.UUID;

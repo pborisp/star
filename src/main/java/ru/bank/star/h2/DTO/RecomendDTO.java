@@ -1,7 +1,6 @@
-package ru.bank.star.DTO;
+package ru.bank.star.h2.DTO;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class RecomendDTO {
     private String idProduct;
