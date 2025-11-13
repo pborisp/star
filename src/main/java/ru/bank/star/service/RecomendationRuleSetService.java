@@ -3,7 +3,7 @@ package ru.bank.star.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.bank.star.h2.DTO.RecomendDTO;
-import ru.bank.star.postgresql.repository.model.RuleSet;
+import ru.bank.star.postgresql.model.RuleSet;
 import ru.bank.star.postgresql.repository.RuleSetRepository;
 
 import java.util.List;

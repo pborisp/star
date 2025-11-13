@@ -1,4 +1,4 @@
-package ru.bank.star.postgresql.repository.model;
+package ru.bank.star.postgresql.model;
 
 import jakarta.persistence.*;
 

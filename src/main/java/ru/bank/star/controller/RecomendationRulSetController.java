@@ -3,7 +3,7 @@ package ru.bank.star.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.bank.star.h2.DTO.RecomendDTO;
-import ru.bank.star.postgresql.repository.model.RuleSet;
+import ru.bank.star.postgresql.model.RuleSet;
 import ru.bank.star.service.RecomendationRuleSetService;
 
 import java.util.Collection;
