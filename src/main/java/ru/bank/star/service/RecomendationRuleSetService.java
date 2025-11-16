@@ -1,5 +1,8 @@
 package ru.bank.star.service;
 
+import org.hibernate.StaleObjectStateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.bank.star.h2.DTO.RecomendDTO;
@@ -16,6 +19,7 @@ import java.util.stream.Collectors;
 public class RecomendationRuleSetService {
     private final List<RecomendationRuleSet> recomendstionService;
     private final RuleSetRepository ruleSetRepository;
+    private final static Logger LOGGER = LoggerFactory.getLogger(RecomendationRuleSetService.class);
 
     @Autowired
     public RecomendationRuleSetService(List<RecomendationRuleSet> recomendstionService, RuleSetRepository ruleSetRepository) {
@@ -30,7 +34,14 @@ public class RecomendationRuleSetService {
     }
 
     public void createRuleSet(RuleSet ruleSet) {
-        ruleSetRepository.save(ruleSet);
+        System.out.println(ruleSet);
+        try {
+            ruleSetRepository.save(ruleSet);
+        } catch (StaleObjectStateException e) {
+            LOGGER.error("Объект устарел, выполняем повторную попытку загрузки.", e);
+            ruleSet = ruleSetRepository.findById(ruleSet.getId()).orElseThrow(() -> new IllegalArgumentException("Правило не найдено"));
+            ruleSetRepository.save(ruleSet);
+        }
     }
 
     public void deleteRuleSet(Long rule_id) {

@@ -12,6 +12,8 @@ public class RuleSet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Integer version;
+
         private String query;
 
         private List<String> arguments;
