@@ -1,5 +1,6 @@
 package ru.bank.star.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.bank.star.h2.DTO.RecomendationsDTO;
 import ru.bank.star.h2.repository.RecomendDTORepository;
@@ -13,6 +14,8 @@ import java.util.UUID;
 public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
     RecomendDTORepository recomendDTORepository;
     RecomendationsRepository recomendationsRepository;
+    @Autowired
+    RuleEngineService ruleEngineService;
 
     public UserOfRecomendationRuleSet(final RecomendDTORepository recomendDTORepository, final RecomendationsRepository recomendationsRepository) {
         this.recomendDTORepository = recomendDTORepository;
@@ -51,6 +54,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -62,6 +68,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -73,6 +82,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -84,6 +96,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -94,6 +109,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -104,6 +122,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }
@@ -114,6 +135,9 @@ public class UserOfRecomendationRuleSet implements RecomendationRuleSet {
             recomendations.setProduct_id(recomendationsDTO.getProduct_id());
             recomendations.setProduct_name(recomendationsDTO.getProduct_name());
             recomendations.setText(recomendationsDTO.getText());
+            if (recomendationsDTO.getProduct_id() != null) {
+                ruleEngineService.processRule(recomendations.getProduct_id());
+            }
         }
         return recomendations;
     }

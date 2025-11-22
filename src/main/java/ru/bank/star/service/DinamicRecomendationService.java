@@ -38,10 +38,19 @@ public class DinamicRecomendationService{
             Map<String, Object> rules = recomendation.getRuls();
             for (RecomendationRuleSet ruleSet : recomendationRuleSets) {
                 Optional<Object> processedRecommendation = ruleSet.getRecomendationById(id, recomendation, rules);
-                results.add(processedRecommendation);
+                if (isValidRecommendation(processedRecommendation.get())) {
+                    results.add(processedRecommendation);
+
+                }
             }
         }
         return results;
     }
-
+    private boolean isValidRecommendation(Object recommendation) {
+        if (recommendation instanceof RecomendationsDTO) {
+            RecomendationsDTO dto = (RecomendationsDTO) recommendation;
+            return dto.getProduct_name() != null;
+        }
+        return false;
+    }
 }

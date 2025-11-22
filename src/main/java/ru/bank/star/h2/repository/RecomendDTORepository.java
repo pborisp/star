@@ -143,4 +143,18 @@ public class RecomendDTORepository {
         }
     }
 
+    public UUID getIdUser(String firstName, String lastName) {
+        try {
+            UUID result = jdbcTemplate.queryForObject(
+                    "SELECT u.id FROM users u WHERE u.first_name = ? and u.last_name = ?",
+                    UUID.class,
+                    firstName,
+                    lastName
+            );
+            return result;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
 }

@@ -5,13 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.bank.star.h2.DTO.RecomendationsDTO;
 //import ru.bank.star.postgresql.model.RuleSet;
+import ru.bank.star.postgresql.model.RuleStatResponse;
 import ru.bank.star.service.DinamicRecomendationService;
 import ru.bank.star.service.RecomendationsService;
 
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("recomendations")
