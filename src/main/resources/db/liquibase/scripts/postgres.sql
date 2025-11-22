@@ -1,7 +1,20 @@
 -- create tables here for PostgreSQL
-CREATE TABLE IF NOT EXISTS RULE_SET (
-                                        id INT PRIMARY KEY,
-                                        query VARCHAR(255),
-                                        arguments VARCHAR(255),
-                                        negate BOOLEAN
-);
+-- CREATE TABLE IF NOT EXISTS RULE_SET
+-- (
+--     id        SERIAL PRIMARY KEY,
+--     query     VARCHAR(255),
+--     arguments VARCHAR(255),
+--     negate    BOOLEAN
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS RECOMENDATIONS
+-- (
+--     id           SERIAL PRIMARY KEY,
+--     product_name VARCHAR(255) UNIQUE,
+--     product_id   UUID,
+--     product_text TEXT
+-- );
+--
+-- CREATE INDEX product_name_index ON RECOMENDATIONS (product_name);
+--
+-- CREATE INDEX query_index ON RULE_SET (query);
