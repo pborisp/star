@@ -3,6 +3,8 @@ package ru.bank.star.configuration;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +15,7 @@ import javax.sql.DataSource;
 public class RecommendationsDataSourceConfiguration {
 
     @Bean(name = "recommendationsDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource recommendationsDataSource(@Value("${application.recommendations-db.url}") String recommendationsUrl) {
         var dataSource = new HikariDataSource();
         dataSource.setJdbcUrl(recommendationsUrl);
@@ -25,5 +28,10 @@ public class RecommendationsDataSourceConfiguration {
     public JdbcTemplate recommendationsJdbcTemplate(
         @Qualifier("recommendationsDataSource") DataSource dataSource){
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean(name = "defaultDataSource")
+    public DataSource defaultDataSource(DataSourceProperties properties) {
+        return properties.initializeDataSourceBuilder().build();
     }
 }
