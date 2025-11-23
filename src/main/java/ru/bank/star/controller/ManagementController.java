@@ -3,11 +3,8 @@ package ru.bank.star.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.boot.actuate.info.Info;
-import org.springframework.boot.actuate.info.InfoContributor;
 import ru.bank.star.configuration.CachConfig;
 
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

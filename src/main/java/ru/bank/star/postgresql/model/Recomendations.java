@@ -18,10 +18,6 @@ public class Recomendations implements Serializable {
     private UUID product_id;
     private String text;
     private String rulesJson;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "rule_set")
-//    @JsonBackReference
-//    RuleSet rulesJson;
 
 
     public Recomendations(final Long id, final String product_name, final UUID product_id, final String text, final String ruleSets) {

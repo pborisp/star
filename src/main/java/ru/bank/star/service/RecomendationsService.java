@@ -14,7 +14,6 @@ import ru.bank.star.postgresql.repository.RecomendationsRepository;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Transactional
 @Service

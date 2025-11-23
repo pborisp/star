@@ -7,32 +7,17 @@ import com.pengrad.telegrambot.request.SendMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.annotation.Schedules;
 import org.springframework.stereotype.Service;
 import ru.bank.star.h2.DTO.RecomendationsDTO;
 import ru.bank.star.h2.repository.RecomendDTORepository;
-import ru.bank.star.postgresql.model.Chats;
-import ru.bank.star.postgresql.model.Messages;
-import ru.bank.star.postgresql.repository.ChatsRepository;
-import ru.bank.star.postgresql.repository.MessagesRepository;
 
 import jakarta.annotation.PostConstruct;
 import ru.bank.star.service.DinamicRecomendationService;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @Service
 public class TelegramBotUpdatesListener implements UpdatesListener {
-
-    public static final String FORMAT_TEXT = "(\\d{2}\\.\\d{2}\\.\\d{4}\\s\\d{2}:\\d{2})(\\s+)(.+)";
-    public static final String FORMAT_DATE_TIME = "dd.MM.yyyy HH:mm";
 
     private Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
 
